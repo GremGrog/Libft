@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   delete_matrix.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmasha-h <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/08/06 16:03:31 by fmasha-h          #+#    #+#             */
+/*   Updated: 2019/08/06 16:03:34 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t t)
+void	del_matrix(char **matrix)
 {
-	unsigned long	i;
-	char			*r;
+	int	i;
 
-	r = s;
 	i = 0;
-	while (i < t)
+	while (matrix[i])
 	{
-		r[i] = 0;
+		if (matrix[i])
+			free(matrix[i]);
+		matrix[i] = NULL;
 		i++;
 	}
 }

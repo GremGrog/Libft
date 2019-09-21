@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_caps.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 17:50:07 by fmasha-h          #+#    #+#             */
+/*   Updated: 2019/05/17 17:50:07 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void		ft_caps(t_pf *list)
 {
-	unsigned long	i;
-	char			*r;
+	int		i;
 
-	r = s;
+	if (list->type != 'X')
+		return ;
 	i = 0;
-	while (i < t)
+	while (g_buffer->str[i] && g_buffer->str[i] != '\0')
 	{
-		r[i] = 0;
+		if (g_buffer->str[i] >= 'a' && g_buffer->str[i] <= 'z')
+			g_buffer->str[i] -= 32;
 		i++;
 	}
 }

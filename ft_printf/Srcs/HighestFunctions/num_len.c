@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   num_len.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qmebble <qmebble@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 18:01:23 by qmebble           #+#    #+#             */
+/*   Updated: 2019/05/17 18:01:23 by qmebble          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+int		num_len(long long int num)
 {
-	unsigned long	i;
-	char			*r;
+	int			i;
+	__int128_t	n;
 
-	r = s;
+	n = num;
+	if (n == 0)
+		return (1);
 	i = 0;
-	while (i < t)
+	if (n < 0)
 	{
-		r[i] = 0;
+		n *= -1;
 		i++;
 	}
+	while (n > 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }

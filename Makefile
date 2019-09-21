@@ -6,7 +6,7 @@
 #    By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/23 14:46:20 by fmasha-h          #+#    #+#              #
-#    Updated: 2019/05/28 18:52:06 by fmasha-h         ###   ########.fr        #
+#    Updated: 2019/08/24 16:23:36 by fmasha-h         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,10 +75,11 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 		get_next_line.c \
+		delete_matrix.c \
 
 OBJF = $(addprefix $(DIR_O)/,$(patsubst %.c,%.o,$(SRCS)))
 
-HEAD = libft.h
+HEAD = libft.h -I ft_printf/MainHeader/ft_printf.h
 
 all: $(NAME)
 	@true
@@ -90,13 +91,18 @@ $(DIR_O)/%.o: ./%.c
 	@gcc $(FLAGS) -I $(HEAD) -o $@ -c $<
 
 $(NAME): $(DIR_O) $(OBJF)
+	@make -C ft_printf
+	@cp ft_printf/libftprintf.a ./$(NAME)
 	@ar rc $(NAME) $(OBJF)
 	@ranlib $(NAME)
+	@echo "------------------LIBFT IS COMPILED------------------------"
 
 clean:
-	/bin/rm -rf $(DIR_O)
+	@/bin/rm -rf $(DIR_O)
+	@make clean -C ft_printf
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
+	@make fclean -C ft_printf
 
 re: fclean all

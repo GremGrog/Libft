@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_itoa_unsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 18:01:45 by qmebble           #+#    #+#             */
+/*   Updated: 2019/08/24 16:21:17 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void	ft_itoa_unsigned(unsigned long long int num)
 {
-	unsigned long	i;
-	char			*r;
+	int		i;
 
-	r = s;
-	i = 0;
-	while (i < t)
+	if (num == 0)
 	{
-		r[i] = 0;
-		i++;
+		g_buffer->str[0] = '0';
+		g_buffer->str[1] = '\0';
+		g_buffer->str_len = 1;
+		return ;
 	}
+	i = 0;
+	while (num > 0)
+	{
+		g_buffer->str[i] = num % 10 + '0';
+		num /= 10;
+		i++;
+		if (num == 0)
+			break ;
+	}
+	g_buffer->str_len = i;
+	ft_strrev();
 }

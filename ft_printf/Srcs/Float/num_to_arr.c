@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   num_to_arr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 17:40:33 by fmasha-h          #+#    #+#             */
+/*   Updated: 2019/05/17 17:40:33 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void		number_to_arr(unsigned long mant, char *arr)
 {
-	unsigned long	i;
-	char			*r;
+	int		i;
 
-	r = s;
 	i = 0;
-	while (i < t)
+	while (mant > 0)
 	{
-		r[i] = 0;
-		i++;
+		arr[i++] = mant % 10;
+		mant /= 10;
 	}
 }

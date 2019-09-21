@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_itoa_u_bin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 18:01:43 by qmebble           #+#    #+#             */
+/*   Updated: 2019/08/24 16:21:10 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void	ft_itoa_u_binary(t_pf *data, unsigned long long int num)
 {
-	unsigned long	i;
-	char			*r;
+	int	i;
 
-	r = s;
+	if (CHECK_BIT(data->modificators, 1))
+		check_and_add(g_buffer->buff_size + 1);
 	i = 0;
-	while (i < t)
+	while (num > 0)
 	{
-		r[i] = 0;
-		i++;
+		g_buffer->str[i++] = num % 2 + '0';
+		num /= 2;
 	}
+	g_buffer->str_len = i;
+	ft_strrev();
 }

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   fill_zero_ox.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 17:49:01 by fmasha-h          #+#    #+#             */
+/*   Updated: 2019/05/17 17:49:13 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void		ft_fill_zero(t_pf *data)
 {
-	unsigned long	i;
-	char			*r;
+	int		i;
 
-	r = s;
 	i = 0;
-	while (i < t)
+	while (data->precision >= 0)
 	{
-		r[i] = 0;
-		i++;
+		g_buffer->final[i++] = '0';
+		data->precision--;
 	}
+	g_buffer->str_len = i;
+	ft_strcpy(g_buffer->str, g_buffer->final);
+	ft_bzero(g_buffer->final, g_buffer->buff_size + 1);
 }

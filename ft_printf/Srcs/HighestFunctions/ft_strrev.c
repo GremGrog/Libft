@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 18:01:21 by qmebble           #+#    #+#             */
+/*   Updated: 2019/08/24 16:20:21 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void	ft_strrev(void)
 {
-	unsigned long	i;
-	char			*r;
+	int		i;
+	int		j;
+	int		len;
 
-	r = s;
+	len = g_buffer->str_len;
 	i = 0;
-	while (i < t)
-	{
-		r[i] = 0;
-		i++;
-	}
+	j = len - 1;
+	while (i < len)
+		g_buffer->final[i++] = g_buffer->str[j--];
+	while (i < g_buffer->buff_size)
+		g_buffer->final[i++] = '\0';
+	ft_strcpy(g_buffer->str, g_buffer->final);
+	ft_bzero(g_buffer->final, g_buffer->buff_size);
 }

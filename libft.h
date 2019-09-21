@@ -6,7 +6,7 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 14:44:12 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/27 19:57:24 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2019/09/06 15:18:22 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include "ft_printf/MainHeader/ft_printf.h"
 
-# define BUFF_SIZE 21
+# define BUFF_SIZE 100
 
 typedef	struct		s_list
 {
@@ -87,5 +88,7 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int                 get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
+void				del_matrix(char **matrix);
+int					ft_printf(const char *format, ...);
 #endif

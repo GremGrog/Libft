@@ -6,13 +6,13 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 18:24:09 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/26 20:04:52 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2019/08/24 16:19:28 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strrev(char *s)
+static char	*ft_revstr(char *s)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -28,6 +28,7 @@ static char	*ft_strrev(char *s)
 	while (i < ft_strlen(s))
 		str[i++] = s[j--];
 	str[i] = '\0';
+	free(s);
 	return (str);
 }
 
@@ -55,5 +56,5 @@ char		*ft_itoa(int n)
 		d /= 10;
 	}
 	str[i] = '\0';
-	return (ft_strrev(str));
+	return (ft_revstr(str));
 }

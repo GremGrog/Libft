@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   set_indents.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 17:54:29 by fmasha-h          #+#    #+#             */
+/*   Updated: 2019/05/17 17:54:29 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+int	set_indents(t_pf *data, const char *format, int i)
 {
-	unsigned long	i;
-	char			*r;
-
-	r = s;
-	i = 0;
-	while (i < t)
+	while (char_bin_search(NUMBERS, format[i]) != -1)
 	{
-		r[i] = 0;
+		data->indents = data->indents * 10 + format[i] - '0';
 		i++;
 	}
+	if (data->indents * 10 / 10 != data->indents)
+		data->indents = 0;
+	return (i);
 }

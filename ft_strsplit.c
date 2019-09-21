@@ -6,7 +6,7 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:02:01 by fmasha-h          #+#    #+#             */
-/*   Updated: 2019/08/21 17:46:58 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2018/12/27 20:01:30 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ static char				**ft_me(const char *s, char **arr, char c)
 	i = 0;
 	j = 0;
 	len = 0;
-	if (!(arr = (char**)malloc(sizeof(char*) * ft_countwd(s, c) + 1)))
+	if (!(arr = (char **)malloc(sizeof(char *) * (ft_countwd(s, c) + 1))))
 		return (NULL);
 	while (j < ft_countwd(s, c))
 	{
 		len = 0;
-		while (s[i] != c && s[i] != '\0')
+		while (s[i] && s[i] != c)
 		{
 			if (s[i] && s[i++] != c)
 				len++;

@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   string_before.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 17:54:41 by fmasha-h          #+#    #+#             */
+/*   Updated: 2019/05/17 17:54:41 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+int			string_before(t_pf *data, const char *format, int i)
 {
-	unsigned long	i;
-	char			*r;
+	int	l;
+	int	j;
 
-	r = s;
-	i = 0;
-	while (i < t)
+	j = 0;
+	l = 0;
+	while (format[i] != '%' && format[i])
 	{
-		r[i] = 0;
+		i++;
+		l++;
+	}
+	i -= l;
+	data->str_before = (char*)malloc(sizeof(char) * l + 1);
+	while (j < l)
+	{
+		data->str_before[j] = format[i];
+		j++;
 		i++;
 	}
+	data->str_before[l] = '\0';
+	g_buffer->before_len = i;
+	return (i);
 }

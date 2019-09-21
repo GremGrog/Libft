@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   num_len_unsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qmebble <qmebble@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 18:01:56 by qmebble           #+#    #+#             */
+/*   Updated: 2019/05/17 18:01:57 by qmebble          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+int	num_len_unsigned(unsigned long long int num)
 {
-	unsigned long	i;
-	char			*r;
+	int	i;
 
-	r = s;
 	i = 0;
-	while (i < t)
+	if (num == 0)
+		return (1);
+	while (num > 0)
 	{
-		r[i] = 0;
+		num /= 10;
 		i++;
 	}
+	return (i);
 }

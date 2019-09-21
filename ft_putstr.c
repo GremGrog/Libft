@@ -6,7 +6,7 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 14:32:10 by fmasha-h          #+#    #+#             */
-/*   Updated: 2019/08/21 17:44:39 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2018/12/24 19:12:13 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	ft_putstr(char const *str)
 {
 	int i;
 
-	if (!str)
-		return ;
-	i = ft_strlen(str);
-	write(1, str, i);
+	if (str)
+	{
+		i = 0;
+		while (str[i] != '\0')
+		{
+			ft_putchar(str[i]);
+			i++;
+		}
+	}
 }

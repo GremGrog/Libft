@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   pointer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:14:19 by fmasha-h          #+#    #+#             */
-/*   Updated: 2018/12/21 00:17:46 by fmasha-h         ###   ########.fr       */
+/*   Created: 2019/05/17 18:01:37 by qmebble           #+#    #+#             */
+/*   Updated: 2019/05/17 20:07:07 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../MainHeader/ft_printf.h"
 
-void	ft_bzero(void *s, size_t t)
+void		ft_pointer(t_pf *data, va_list args)
 {
-	unsigned long	i;
-	char			*r;
-
-	r = s;
-	i = 0;
-	while (i < t)
-	{
-		r[i] = 0;
-		i++;
-	}
+	g_pointer = va_arg(args, unsigned long long int);
+	ft_itoa_pointer(g_pointer);
+	ft_put_precision_pointer(data);
+	ft_put_grid_pointer();
+	ft_put_indents_pointer(data);
 }
