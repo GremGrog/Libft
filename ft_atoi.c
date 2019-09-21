@@ -6,11 +6,12 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 13:10:44 by fmasha-h          #+#    #+#             */
-/*   Updated: 2019/09/06 16:21:13 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2019/09/21 14:27:35 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 int	ft_atoi(const char *str)
 {
