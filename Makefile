@@ -6,7 +6,7 @@
 #    By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/23 14:46:20 by fmasha-h          #+#    #+#              #
-#    Updated: 2019/08/24 16:23:36 by fmasha-h         ###   ########.fr        #
+#    Updated: 2019/09/24 21:17:41 by fmasha-h         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,10 @@ SRCS = ft_atoi.c \
 		ft_toupper.c \
 		get_next_line.c \
 		delete_matrix.c \
+		ft_isspace.c \
+		matrix_len.c \
+		len_without_spaces.c \
+		count_words.c \
 
 OBJF = $(addprefix $(DIR_O)/,$(patsubst %.c,%.o,$(SRCS)))
 

@@ -6,7 +6,7 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 14:44:12 by fmasha-h          #+#    #+#             */
-/*   Updated: 2019/09/06 15:18:22 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2019/09/24 21:17:32 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,9 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					get_next_line(const int fd, char **line);
 void				del_matrix(char **matrix);
+int					ft_isspace(char c);
+int					matrix_len(char **arr);
+int					len_without_spaces(char *str);
+int					count_words(char *str);
 int					ft_printf(const char *format, ...);
 #endif
