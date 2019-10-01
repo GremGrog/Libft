@@ -6,7 +6,7 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/24 21:15:40 by fmasha-h          #+#    #+#             */
-/*   Updated: 2019/09/25 14:04:31 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2019/10/01 15:50:43 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		count_words(char *str)
 	trim = ft_strtrim(str);
 	while (trim[i])
 	{
-		if (trim[i] && ft_isalnum(trim[i]) == 0)
+		if (trim[i] && ft_isalnum(trim[i]) == 0 && trim[i] != ',' && trim[i] != '-')
 		{
 			while (ft_isspace(trim[i]) == 1)
 				i++;

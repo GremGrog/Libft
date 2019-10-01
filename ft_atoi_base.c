@@ -6,7 +6,7 @@
 /*   By: fmasha-h <fmasha-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 14:05:40 by fmasha-h          #+#    #+#             */
-/*   Updated: 2019/09/25 16:57:34 by fmasha-h         ###   ########.fr       */
+/*   Updated: 2019/09/25 17:04:59 by fmasha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,10 @@ long	ft_atoi_base(const char *str, int base)
 	int			sign;
 	long		res;
 	int			i;
-	char		*trim;
 
 	sign = 1;
 	res = 0;
 	i = 0;
-	trim = ft_strtrim(str);
 	if (str[i] == '-' && str[i + 1] >= '0' && str[i + 1] <= '9')
 	{
 		if (base == 10)
