@@ -25,7 +25,8 @@ int		count_words(char *str)
 	trim = ft_strtrim(str);
 	while (trim[i])
 	{
-		if (trim[i] && ft_isalnum(trim[i]) == 0 && trim[i] != ',' && trim[i] != '-')
+		if (trim[i] && ft_isalnum(trim[i]) == 0 &&\
+						trim[i] != ',' && trim[i] != '-')
 		{
 			while (ft_isspace(trim[i]) == 1)
 				i++;
